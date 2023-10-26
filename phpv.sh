@@ -56,9 +56,9 @@ while getopts ":hlv" option; do
         	Help
         	exit;;
         l)
-			PHP_VERSIONS=($(ls -d -- /usr/bin/php[0-9]*))
-            for v in "${!PHP_VERSIONS[@]}"; do echo "$(basename ${PHP_VERSIONS[$v]} | sed 's/php*//')"; done
-			exit;;
+        	PHP_VERSIONS=($(ls -d -- /usr/bin/php[0-9]*))
+        	for v in "${!PHP_VERSIONS[@]}"; do echo "$(basename ${PHP_VERSIONS[$v]} | sed 's/php*//')"; done
+        	exit;;
         v)
         	VERBOSE_MOD=true
         	PHP_CLI_VERSION=$2
