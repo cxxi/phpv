@@ -62,8 +62,8 @@ while getopts ":hlv" option; do
         v)
         	VERBOSE_MOD=true
         	PHP_CLI_VERSION=$2
-			COMPOSER_VERSION=$3
-			PHP_APACHE2_VERSION=$4
+        	COMPOSER_VERSION=$3
+        	PHP_APACHE2_VERSION=$4
         	;;
      	\?)
         	echo "Error: Invalid option"
