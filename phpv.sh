@@ -55,8 +55,10 @@ while getopts ":hlv" option; do
         	Help
         	exit;;
         l)
-        	PHP_VERSIONS=($(ls -d -- /usr/bin/php[0-9]*))
-        	for v in "${!PHP_VERSIONS[@]}"; do echo "$(basename ${PHP_VERSIONS[$v]} | sed 's/php*//')"; done
+        	PHP_CLI_VERSIONS=($(ls -d -- /usr/bin/php[0-9]*))
+        	for v in "${!PHP_CLI_VERSIONS[@]}"; do echo "CLI $(basename ${PHP_CLI_VERSIONS[$v]} | sed 's/php*//')"; done
+        	PHP_APACHE2_VERSIONS=($(ls -d -- /etc/apache2/conf-available/php[0-9]*))
+        	for v in "${!PHP_APACHE2_VERSIONS[@]}"; do echo "FPM $(basename ${PHP_APACHE2_VERSIONS[$v]} | sed 's/php*//' | sed 's/-fpm.conf//')"; done
         	exit;;
         v)
         	VERBOSE_MOD=true
