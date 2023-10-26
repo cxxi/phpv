@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 Help()
 {
@@ -7,6 +7,7 @@ Help()
 	echo
 	echo "Mandatory arguments to long options are mandatory for short options too."
 	echo "h     Print this Help."
+	echo "l     List PHP versions installed."
 	echo "v     Verbose mode."
 	echo
 	echo "If PHP APACHE2 version is not specified, PHP CLI VERSION will be applied,"
@@ -48,11 +49,16 @@ PHP_CLI_VERSION=$1
 COMPOSER_VERSION=$2
 PHP_APACHE2_VERSION=$3
 
-while getopts ":hv" option; do
+
+while getopts ":hlv" option; do
     case $option in
       	h)
         	Help
         	exit;;
+        l)
+			PHP_VERSIONS=($(ls -d -- /usr/bin/php[0-9]*))
+            for v in "${!PHP_VERSIONS[@]}"; do echo "$(basename ${PHP_VERSIONS[$v]} | sed 's/php*//')"; done
+			exit;;
         v)
         	VERBOSE_MOD=true
         	PHP_CLI_VERSION=$2

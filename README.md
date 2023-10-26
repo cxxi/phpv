@@ -19,10 +19,11 @@ phpv [OPTION]... PHP_CLI_VERSION COMPOSER_VERSION [PHP_APACHE2_VERSION]
 
 Mandatory arguments to long options are mandatory for short options too.
 
-| options | required | default | description        |
-|---------|----------|---------|--------------------|
-| -h      | no       |         | Print this Help.   |
-| -v      | no       | false   | Verbose mode.      |
+| options | required | default | description                     |
+|---------|----------|---------|---------------------------------|
+| -h      | no       |         | Print this Help.                |
+| -l      | no       |         | Print PHP versions installed.   |
+| -v      | no       | false   | Verbose mode.                   |
 
 If PHP APACHE2 version is not specified, PHP CLI VERSION will be applied.
 If PHP CLI version and COMPOSER version were not specified, they will be asked interactively.
